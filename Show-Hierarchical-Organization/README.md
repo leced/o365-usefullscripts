@@ -1,9 +1,8 @@
 Show-Hierarchical-Organization
 ===================
 
-Show-Hierarchical-Organization render a tree that show the user with all direct reports users and its own boss.
+Show-Hierarchical-Organization render a tree that represent a hierarchical organization for the user selected. It looks like delve rendering.
 
-It looks like delve rendering.
 
 Usage :
 
