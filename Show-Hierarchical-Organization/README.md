@@ -1,10 +1,9 @@
 Usage :
 
-
 ##Examples
-Using the function against one GPO:
+Using the function with one user login
 ```PowerShell
-Show-Hierarchical-Organization arnaud.xxx@contonso.com
+Show-Hierarchical-Organization arnaud@contonso.com
 ```
 
 ![alt tag](images/result.png)
