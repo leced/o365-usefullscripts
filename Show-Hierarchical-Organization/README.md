@@ -17,7 +17,9 @@ Show-Hierarchical-Organization arnaud@contonso.com
 ```
 
 Powershell Rendering : 
+
 ![alt tag](images/result.png) 
 
 Delve Rendering : 
+
 ![alt tag](images/delve.png) 
