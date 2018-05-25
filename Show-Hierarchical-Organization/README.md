@@ -16,4 +16,4 @@ Using the function with one user login
 Show-Hierarchical-Organization arnaud@contonso.com
 ```
 
-![alt tag](images/result.png)
+![alt tag](images/result.png) VS ![alt tag](images/delve.png) VS 
