@@ -16,4 +16,8 @@ Using the function with one user login
 Show-Hierarchical-Organization arnaud@contonso.com
 ```
 
-![alt tag](images/result.png) VS ![alt tag](images/delve.png) VS 
+Powershell Rendering : 
+![alt tag](images/result.png) 
+
+Delve Rendering : 
+![alt tag](images/delve.png) 
