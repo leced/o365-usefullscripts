@@ -1,7 +1,7 @@
 Show-Hierarchical-Organization
 ===================
 
-Show-Hierarchical-Organization render a tree that represent a hierarchical organization for the user selected. It looks like delve rendering.
+Show-Hierarchical-Organization render a tree that represent a hierarchical organization for the user selected. Direct reports users and manager will be drawn. It looks like delve rendering.
 
 
 ## Usage :
@@ -16,10 +16,10 @@ Using the function with one user login
 Show-Hierarchical-Organization arnaud@contonso.com
 ```
 
-## Powershell Rendering : 
+## Powershell Rendering (EN) : 
 
 ![alt tag](images/result.png) 
 
-## Delve Rendering : 
+## Delve Rendering (FR) : 
 
 ![alt tag](images/delve.png) 

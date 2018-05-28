@@ -31,7 +31,6 @@ else
 	write-host "Get informations for user : " -NoNewline -foreground Yellow; Write-Host $userUPN 
     $user = Get-AzureADUser -ObjectId $userUPN
     $userObjectId = $user.ObjectId
-    # $user | fl
 }
 
 if ($userObjectId -eq $NULL)
@@ -44,7 +43,7 @@ if ($userObjectId -eq $NULL)
 ## DISPLAY REQUEST USER INFORMATIONS
 write-host 
 write-host "User Display Name : " -NoNewline; Write-Host $user.DisplayName -ForegroundColor Green
-write-host "User Object Id    :"$userObjectId
+#write-host "User Object Id    :"$userObjectId
 write-host 
 
 ## READ INFORMATIONS ABOVE AND UNDER
@@ -60,7 +59,7 @@ else {
 }
 
 ## RENDER HIERARCHICAL TREE
-Write-Host "Render tree : " -ForegroundColor Yellow
+Write-Host "Organization: " -ForegroundColor Yellow
 Write-Host
 Write-host $userManagerDisplayName
 Write-host " | " 
