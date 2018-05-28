@@ -1,7 +1,3 @@
-write-host
-write-host "| Draw hierarchical organization for one user |" -ForegroundColor Cyan
-write-host
-
 try 
 { 
     $var = Get-AzureADTenantDetail >$NULL
@@ -18,6 +14,8 @@ if ($args.length -gt 0)
 }
 else
 {
+    write-host "Rendering hierarchical organization for one user." -ForegroundColor Cyan
+    write-host 
 	$userUPN = Read-Host "Please enter user's email  (eg: 'firstname.lastname@company.com') "
 }
 if([string]::IsNullOrEmpty($userUPN))
@@ -28,15 +26,21 @@ if([string]::IsNullOrEmpty($userUPN))
 }
 else
 {
-	write-host "Get informations for user : " -NoNewline -foreground Yellow; Write-Host $userUPN 
-    $user = Get-AzureADUser -ObjectId $userUPN
-    $userObjectId = $user.ObjectId
+    try
+    {
+        write-host "Get informations for user : " -NoNewline -foreground Yellow; Write-Host $userUPN 
+        $user = Get-AzureADUser -ObjectId $userUPN
+        $userObjectId = $user.ObjectId
+    }
+    catch
+    {
+    }
 }
 
 if ($userObjectId -eq $NULL)
 {
     Write-Host
-    write-Host "Script Stopped : user/email not found." -ForegroundColor Red
+    write-Host "> Script Stopped : user/email not found." -ForegroundColor Red
     Exit
 }
 
@@ -52,10 +56,15 @@ $userManager = Get-AzureADUserManager -ObjectId $userObjectId
 
 if ($userManager.ObjectId -eq $userObjectId)
 {
-    $userManagerDisplayName = "(himself)"
+    $userManagerDisplayName = "(Himself)"
 }
 else {
     $userManagerDisplayName = $userManager.DisplayName 
+}
+
+if ($userManagerDisplayName -eq $NULL)
+{
+    $userManagerDisplayName = "(Undefined)"
 }
 
 ## RENDER HIERARCHICAL TREE
@@ -66,9 +75,11 @@ Write-host " | "
 Write-host " |--> " 
 Write-host "      "$user.DisplayName -ForegroundColor Green
 Write-host "       | " 
-Write-host "       |--> "     
-if ($lstUserDirectReport.Count -gt 0)
+$totalDirectReports = $lstUserDirectReport.Count
+if ($totalDirectReports -gt 0)
 {
+    Write-host "       |-->  Direct Reports ($totalDirectReports)"
+    Write-host 
     foreach ($lstUser in $lstUserDirectReport)
     {
         if ($lstUser.DisplayName -ne $user.DisplayName)
@@ -78,6 +89,6 @@ if ($lstUserDirectReport.Count -gt 0)
     }
 }
 else {
-    Write-host "            (nobody)"
+    Write-host "       |-->  (no one)"
 }
 Write-Host
