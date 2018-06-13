@@ -1,4 +1,4 @@
-Show-Hierarchical-Organization
+Show-HierarchicalOrganization
 ===================
 
 Show-Hierarchical-Organization render a tree that represent a hierarchical organization for the user selected. Direct reports users and manager will be drawn. It looks like delve rendering.
@@ -6,14 +6,14 @@ Show-Hierarchical-Organization render a tree that represent a hierarchical organ
 
 ## Usage :
 
-Show-Hierarchical-Organization name@domain.com
+Show-HierarchicalOrganization name@domain.com
 
 
 ## Example :
 
 Using the function with one user login
 ```
-> Show-Hierarchical-Organization arnaud@contonso.com
+> Show-HierarchicalOrganization arnaud@contonso.com
 ```
 
 ## Powershell Rendering (EN) : 
