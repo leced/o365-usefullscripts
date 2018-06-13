@@ -1,3 +1,20 @@
+<#
+	.SYNOPSIS
+		Render a tree that represent a hierarchical organizationfor the user selected.
+	
+	.DESCRIPTION
+		Function that render a tree that represent a hierarchical organization for the user selected. Direct reports users and manager will be drawn. It looks like delve rendering.
+	
+	.PARAMETER UPN
+		Specifies the login (UPN) of the selected user.
+	
+	.EXAMPLE
+		Show-HierarchicalOrganization arnaud@contonso.com
+	
+	.NOTES
+		@cedric_renauld
+		github.com/leced
+#>
 try 
 { 
     $var = Get-AzureADTenantDetail >$NULL
@@ -10,13 +27,13 @@ catch [Microsoft.Open.Azure.AD.CommonLibrary.AadNeedAuthenticationException]
 
 if ($args.length -gt 0)
 {
-  $userUPN = $args[0]
+$userUPN = $args[0]
 }
 else
 {
     write-host "Rendering hierarchical organization for one user." -ForegroundColor Cyan
     write-host 
-	$userUPN = Read-Host "Please enter user's email  (eg: 'firstname.lastname@company.com') "
+    $userUPN = Read-Host "Please enter user's email  (eg: 'firstname.lastname@company.com') "
 }
 if([string]::IsNullOrEmpty($userUPN))
 {
