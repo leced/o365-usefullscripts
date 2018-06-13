@@ -95,8 +95,8 @@ Write-host "       | "
 $totalDirectReports = $lstUserDirectReport.Count
 if ($totalDirectReports -gt 0)
 {
-    Write-host "       |-->  Direct Reports ($totalDirectReports)"
-    Write-host 
+    Write-host "       |-->  Direct Reports ($totalDirectReports)" -ForegroundColor Gray
+    Write-host "                    ---"
     foreach ($lstUser in $lstUserDirectReport)
     {
         if ($lstUser.DisplayName -ne $user.DisplayName)
